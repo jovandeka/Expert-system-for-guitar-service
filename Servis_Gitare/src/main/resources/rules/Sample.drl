@@ -1,0 +1,238 @@
+package pravila
+
+import com.sample.Gitara
+
+rule "1. Zica previse blizu vrata i zuji"
+when
+	o:Gitara(zica == "zuji", akcija == "preniska")
+then
+	o.setZica("dobra");
+	o.setAkcija("dobra");
+	o.setAkcija_akcija1("Podizati akciju na mostu dok ne prestane da zuji zica na svim pragovima.");
+end
+
+rule "2. Zica previse odajena od vrata"
+when
+	o:Gitara(akcija == "previsoka")
+then
+	o.setAkcija("dobra");
+	o.setAkcija_akcija2("Spustati akciju na mostu koliko god moze a da ne dodje do zujanja zice.");
+end
+
+rule "3. Pokidana ili zardjala zica"
+when
+	o:Gitara(zica == "pokidana" || zica == "zardjala")
+then
+	o.setZica("dobra");
+	o.setZica_akcija1("Zameniti zicu.");
+end
+
+rule "4. Klimav most"
+when
+	o:Gitara(most == "klimav")
+then
+	o.setMost("dobar");
+	o.setMost_akcija1("Zasrafiti most.");
+end
+
+rule "5. Most hrapav, cesto pucaju zice"
+when
+	o:Gitara(most == "hrapav")
+then
+	o.setMost("dobar");
+	o.setMost_akcija2("Osmirglati most.");
+end
+
+rule "6. Losa intonacija"
+when
+	o:Gitara(intonacija == "losa")
+then
+	o.setIntonacija("dobra");
+	o.setIntonacija_akcija1("Podesiti intonaciju da bude precizna.");
+end
+
+rule "7. Polomljen potenciometar"
+when
+	o:Gitara(potenciometar == "polomljen")
+then
+	o.setPotenciometar("dobar");
+	o.setPotenciometar_akcija1("Zameniti potenciometar novim.");
+end
+
+rule "8. Krci potenciometar kada se okrece"
+when
+	o:Gitara(potenciometar == "krci")
+then
+	o.setPotenciometar("dobar");
+	o.setPotenciometar_akcija2("Naprskati oko potenciometra WD-40 sprej.");
+end
+
+rule "9. Prag ostecen preko 30%"
+when
+	o:Gitara(prag == "ostecen>30%")
+then
+	o.setPrag("dobar");
+	o.setPrag_akcija1("Zameniti prag novim.");
+end
+
+rule "10. Prag ostecen ispod 30%"
+when
+	o:Gitara(prag == "ostecen<30%")
+then
+	o.setPrag("dobar");
+	o.setPrag_akcija2("Ispolirati prag.");
+end
+
+rule "11. Kriv vrat i zice previse udaljene od vrata"
+when
+	o:Gitara(akcija == "previsoka", vrat == "kriv")
+then
+	o.setVrat("dobar");
+	o.setAkcija("dobra");
+	o.setVrat_akcija1("Zasrafiti sipku u vratu.");
+end
+
+rule "12. olomljen vrat"
+when
+	o:Gitara(vrat == "polomljen")
+then
+	o.setVrat("dobar");
+	o.setVrat_akcija2("Zameniti vrat novim.");
+end
+
+rule "13. Prljav vrat"
+when
+	o:Gitara(vrat == "prljav")
+then
+	o.setVrat("dobar");
+	o.setVrat_akcija3("Ocistiti vrat.");
+end
+
+rule "14. Ispucao vrat, suv, ostecen"
+when
+	o:Gitara(vrat == "suv")
+then
+	o.setVrat("dobar");
+	o.setVrat_akcija4("Podmazati vrat uljem za odrzavanje.");
+end
+
+rule "15. Klimava civija"
+when
+	o:Gitara(civija == "klimava")
+then
+	o.setCivija("dobra");
+	o.setCivija_akcija1("Zasrafiti civiju.");
+end
+
+rule "16. Pokvarena civija, zica se ne moze namotati"
+when
+	o:Gitara(civija == "pokvarena")
+then
+	o.setCivija("dobra");
+	o.setCivija_akcija2("Zameniti civiju novom.");
+end
+
+rule "17. Magnet ne daje zvuk"
+when
+	o:Gitara(magnet == "necujan")
+then
+	o.setMagnet("dobar");
+	o.setMagnet_akcija1("Zalemiti elektroniku magneta u gitari.");
+end
+
+rule "18. Magnet zuji konstantno"
+when
+	o:Gitara(magnet == "zuji")
+then
+	o.setMagnet("dobar");
+	o.setMagnet_akcija2("Zalemiti zicu za uzemljenje u gitari.");
+end
+
+rule "19. Magnet se cuje preslabo"
+when
+	o:Gitara(magnet == "tih")
+then
+	o.setMagnet("dobar");
+	o.setMagnet_akcija3("Odsrafljivati magnet dok se ne dobije zeljena jacina tona.");
+end
+
+rule "20. Magnet se cuje prejako"
+when
+	o:Gitara(magnet == "glasan")
+then
+	o.setMagnet("dobar");
+	o.setMagnet_akcija4("Zasrafljivati magnet dok se ne dobije zeljena jacina tona.");
+end
+
+rule "21. Magnet ne radi"
+when
+	o:Gitara(magnet == "pokvaren")
+then
+	o.setMagnet("dobar");
+	o.setMagnet_akcija5("Zameniti magnet novim.");
+end
+
+rule "22. Nut suv, zice pucketaju kada se dotezu"
+when
+	o:Gitara(nut == "suv")
+then
+	o.setNut("dobar");
+	o.setNut_akcija1("Podmazati lezista nuta grafitom.");
+end
+
+rule "23. Nut polomljen"
+when
+	o:Gitara(nut == "polomljen")
+then
+	o.setNut("dobar");
+	o.setNut_akcija2("Zameniti nut novim.");
+end
+
+rule "24. Ulaz klimav"
+when
+	o:Gitara(ulaz == "klimav")
+then
+	o.setUlaz("dobar");
+	o.setUlaz_akcija1("Zasrafiti ulaz.");
+end
+
+rule "25. Magnet ne daje zvuk, ulaz pokvaren"
+when
+	o:Gitara(magnet == "necujan", ulaz == "pokvaren")
+then
+	o.setUlaz("dobar");
+	o.setMagnet("dobar");
+	o.setUlaz_akcija2("Zalemiti elektroniku magneta i ulaza u gitari.");
+end
+
+rule "26. Svic polomljen"
+when
+	o:Gitara(svic == "polomljen")
+then
+	o.setSvic("dobar");
+	o.setSvic_akcija1("Zameniti svic novim.");
+end
+
+rule "27. Svic pokvaren, ne menja rad magneta"
+when
+	o:Gitara(svic == "pokvaren")
+then
+	o.setSvic("dobar");
+	o.setSvic_akcija2("Zalemiti elektroniku svica u gitari.");
+end
+
+rule "28. Dugme klimavo, gitara spada sa kajisa"
+when
+	o:Gitara(dugme == "klimavo")
+then
+	o.setDugme("dobar");
+	o.setDugme_akcija1("Zasrafiti dugme.");
+end
+
+rule "29. Dugme fali"
+when
+	o:Gitara(dugme == "fali")
+then
+	o.setDugme("dobro");
+	o.setDugme_akcija2("Staviti novo dugme.");
+end
